@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::any ('/test',[TestController::class,'test']);
+Route::any ('/',[TestController::class,'test']);
 
