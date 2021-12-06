@@ -15,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::any ('/',[\App\Http\Controllers\Toodocontroller::class,'index']);
-
+Route::any ('/create',[\App\Http\Controllers\Toodocontroller::class,'create']);
+Route::any ('/store',[\App\Http\Controllers\Toodocontroller::class,'store'])->name('store');
