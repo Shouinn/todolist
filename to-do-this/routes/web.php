@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::any ('/',[TestController::class,'test']);
+Route::any ('/',[\App\Http\Controllers\Toodocontroller::class,'index']);
 
