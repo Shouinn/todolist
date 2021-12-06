@@ -18,4 +18,8 @@ class Toodocontroller extends Controller
         $data = DB::table('todos')->get();
         return view ('pages.create',compact('data',$data));
     }
+    public function store(Request $request)
+    {
+       dd($request);
+    }
 }
