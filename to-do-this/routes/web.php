@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
-|--------------------------------------------------------------------------
+|--------------------------------------------------------------------------0
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::any ('/',[\App\Http\Controllers\Toodocontroller::class,'index']);
-Route::any ('/create',[\App\Http\Controllers\Toodocontroller::class,'create']);
-Route::any ('/store',[\App\Http\Controllers\Toodocontroller::class,'store'])->name('store');
+Route::any ('/',[\App\Http\Controllers\Toodocontroller::class,'index'])->name('index');
+Route::get ('/create',[\App\Http\Controllers\Toodocontroller::class,'get_create_page'])->name('get_create_edge');
+Route::post ('/create',[\App\Http\Controllers\Toodocontroller::class,'store_create_data'])->name('store');
