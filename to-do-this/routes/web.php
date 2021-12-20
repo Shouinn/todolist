@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::any ('/',[\App\Http\Controllers\Toodocontroller::class,'index'])->name('index');
 Route::get ('/create',[\App\Http\Controllers\Toodocontroller::class,'get_create_page'])->name('get_create_edge');
 Route::post ('/create',[\App\Http\Controllers\Toodocontroller::class,'store_create_data'])->name('store');
+
+Route::get ('/delete',[\App\Http\Controllers\Toodocontroller::class,'delete_data'])->name('delete_data');
+
+Route::get ('/edit',[\App\Http\Controllers\Toodocontroller::class,'get_edit_page'])->name('get_edit_page');
+Route::post ('/edit',[\App\Http\Controllers\Toodocontroller::class,'store_edit_data'])->name('store_edit_data');

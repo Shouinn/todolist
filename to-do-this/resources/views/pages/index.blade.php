@@ -16,11 +16,20 @@
                 <td>{{$row->content}}</td>
                 <td>{{$row->remake}}</td>
                 <td>
-                <button class="btn btn-outline-success" >修改</button>
-                <button class="btn btn-outline-danger"onclick="`location.href = {{route('delete')}}?delete_id={{$row_id}}`">修改</button>
+                <button class="btn btn-outline-success"
+                    onclick="edit_data({{$row->id}})">修改</button>
+                <button class="btn btn-outline-danger"onclick="delete_data({{$row->id}})">刪除</button>
                 </td>
             </tr>
         @endforeach
         </tbody>
     </table>
+    <script>
+        function delete_data(id){
+            window.location.href = `{{route('delete_data')}}`+'?id='+id;
+        }
+        function edit_data(id){
+            window.location.href = `{{route('get_edit_page')}}`+'?id='+id;
+        }
+    </script>
 @endsection

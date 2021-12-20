@@ -30,15 +30,39 @@ class Toodocontroller extends Controller
            "content" => $content,
            "remake" => $remake,
        ]);
-       return view ('pages.create');
+       return redirect()->route('index');
 
     }
-    public function delete (Request $request)
-    {
-        $id = $request -> delete_id;
-        DB:: table('todos')
+    public function delete_data (Request $request)
+   {
+        $id = $request->get('id');
+        DB::table('todos')
             ->where('id',$id)
             ->delete();
         return redirect()->route('index');
+    }
+
+
+
+    public function get_edit_page()
+    {
+
+        dd('yes');
+        return view ('pages.create');
+    }
+    public function store_edit_data(Request $request)
+    {
+
+        $title = $request -> title;
+        $content = $request -> content;
+        $remake = $request->remake;
+
+        DB:: table("todos")->insert([
+            "title" => $title,
+            "content" => $content,
+            "remake" => $remake,
+        ]);
+        return redirect()->route('index');
+
     }
 }
