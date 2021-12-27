@@ -10,7 +10,7 @@ class Toodocontroller extends Controller
     public function index()
     {
         $data = DB::table('todos')->get();
-//        dd($data,'123');
+
         return view ('pages.index',compact('data',$data));
     }
     public function get_create_page()
@@ -44,20 +44,26 @@ class Toodocontroller extends Controller
 
 
 
-    public function get_edit_page()
+    public function get_edit_page(Request $request)
     {
 
-        dd('yes');
-        return view ('pages.create');
+        $id = $request->get('id');
+        $data = DB::table('todos')
+            ->where('id',$id)
+            ->first();
+
+        return view('pages.edit',compact('data',$data));
     }
     public function store_edit_data(Request $request)
     {
+        $id = $request ->get('id');
+        $title = $request -> get('title');
+        $content = $request -> get('content');
+        $remake = $request->get('remake');
 
-        $title = $request -> title;
-        $content = $request -> content;
-        $remake = $request->remake;
-
-        DB:: table("todos")->insert([
+        DB:: table("todos")
+            ->where('id',$id)
+        ->update([
             "title" => $title,
             "content" => $content,
             "remake" => $remake,
